@@ -1,27 +1,20 @@
-const key = '0maXh2wUkHGY5GllqfBKSKrVKp0IkckH';
+"use strict";
 
-// get weather information
-const getWeather = async (id) => {
+var key = '0maXh2wUkHGY5GllqfBKSKrVKp0IkckH'; // get weather information
 
-  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
-  const query = `${id}?apikey=${key}`;
-
-  const response = await fetch(base + query);
-  const data = await response.json();
-
+var getWeather = async function getWeather(id) {
+  var base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+  var query = "".concat(id, "?apikey=").concat(key);
+  var response = await fetch(base + query);
+  var data = await response.json();
   return data[0];
+}; // get city information
 
-};
 
-// get city information
-const getCity = async (city) => {
-
-  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-  const query = `?apikey=${key}&q=${city}`;
-
-  const response = await fetch(base + query);
-  const data = await response.json();
-
+var getCity = async function getCity(city) {
+  var base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+  var query = "?apikey=".concat(key, "&q=").concat(city);
+  var response = await fetch(base + query);
+  var data = await response.json();
   return data[0];
-
 };
